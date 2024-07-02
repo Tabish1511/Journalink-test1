@@ -4,7 +4,7 @@ import { cors } from 'hono/cors'
 const app = new Hono();
 
 // Set allowed origins
-const allowedOrigins = ['https://journalink-6o7ninvdf-tabish1511s-projects.vercel.app/', 'http://localhost:8787'];
+const allowedOrigins = ['https://journalink-6o7ninvdf-tabish1511s-projects.vercel.app/'];
 
 // CORS middleware configuration
 const corsOptions = {
@@ -12,7 +12,7 @@ const corsOptions = {
 };
 
 // Use CORS middleware for '/api3/*'
-app.use('/api3/*', cors(corsOptions));
+app.use('/app/*', cors(corsOptions));
 
 // Define your other routes and application logic here
 app.get('/', (c) => c.text('Hello Hono!'));
