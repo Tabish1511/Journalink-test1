@@ -14,7 +14,7 @@ app.get('/ws', (c) => {
   const [client, server] = Object.entries(new WebSocketPair()).map(([, sock]) => sock);
   server.accept();
 
-  server.addEventListener('message', (event) => {
+  server.addEventListener('message', (event: any) => {
     console.log('Message from client:', event.data);
     server.send('Hello user');
   });
@@ -23,7 +23,7 @@ app.get('/ws', (c) => {
     console.log('Client disconnected');
   });
 
-  return new Response(null, { status: 101, webSocket: client });
+  return new Response(null, { status: 101, webSocket: client } as ResponseInit & { webSocket: WebSocket });
 });
 
 export default {
