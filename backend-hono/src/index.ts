@@ -1,7 +1,20 @@
-import { Hono } from 'hono';
+import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 
 const app = new Hono();
 
+// Set allowed origins
+const allowedOrigins = ['https://example.com', 'https://example.org'];
+
+// CORS middleware configuration
+const corsOptions = {
+  origin: allowedOrigins,
+};
+
+// Use CORS middleware for '/api3/*'
+app.use('/api3/*', cors(corsOptions));
+
+// Define your other routes and application logic here
 app.get('/', (c) => c.text('Hello Hono!'));
 
 // WebSocket handling
@@ -23,9 +36,15 @@ app.get('/ws', (c) => {
     console.log('Client disconnected');
   });
 
-  return new Response(null, { status: 101, webSocket: client } as ResponseInit & { webSocket: WebSocket });
+  const responseInit: ResponseInit & { webSocket?: WebSocket } = {
+    status: 101,
+    webSocket: client,
+  };
+
+  return new Response(null, responseInit);
 });
 
+// Export the Hono application
 export default {
   async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
     return app.fetch(request);
