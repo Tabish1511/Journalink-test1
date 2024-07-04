@@ -10,7 +10,7 @@ const Home = () => {
 
   // const socket = useMemo(() => io("http://localhost:4000"), [])  //  <<== here comes the BACKEND URL
 
-  const socket = useMemo(() => io("https://www.journalink.onrender.com/"), [])  //  <<== here comes the BACKEND URL
+  const socket = useMemo(() => io("https://journalink.onrender.com/"), [])  //  <<== here comes the BACKEND URL
   
   socket.on("connect", () => {
     console.log("I am connected")
