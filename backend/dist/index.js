@@ -6,7 +6,7 @@ const http_1 = require("http");
 const app = express();
 const server = (0, http_1.createServer)(app);
 // Set the allowed origins based on the environment
-const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app"];
+const allowedOrigins = ["http://localhost:3000", "https://journalink-6batn230t-tabish1511s-projects.vercel.app/"];
 const io = new socket_io_1.Server(server, {
     cors: {
         origin: allowedOrigins,
