@@ -6,7 +6,9 @@ import io from 'socket.io-client';
 // let socket: any;
 
 const Home = () => {
-  const socket = useMemo(() => io("https://backend-hono.khaqantabish.workers.dev"), [])
+  // const socket = useMemo(() => io("https://backend-hono.khaqantabish.workers.dev"), [])
+
+  const socket = useMemo(() => io("http://localhost:4000"), [])  //  <<== here comes the BACKEND URL
   
   socket.on("connect", () => {
     console.log("I am connected")

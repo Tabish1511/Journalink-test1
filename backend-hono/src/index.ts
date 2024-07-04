@@ -3,19 +3,18 @@ import { cors } from 'hono/cors'
 
 const app = new Hono();
 
-// Set allowed origins
-const allowedOrigins = ['https://journalink-6o7ninvdf-tabish1511s-projects.vercel.app/'];
+const allowedOrigins = ['https://journalink-6o7ninvdf-tabish1511s-projects.vercel.app/', 'http://localhost:3000'];
 
-// CORS middleware configuration
-const corsOptions = {
+app.use('*', cors({
   origin: allowedOrigins,
-};
+  allowHeaders: ['Origin', 'Content-Type', 'Authorization'],
+  allowMethods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
-// Use CORS middleware for '/api3/*'
-app.use('/app/*', cors(corsOptions));
 
 // Define your other routes and application logic here
-app.get('/', (c) => c.text('Hello Hono!'));
+app.get('*', (c) => c.text('Hello Hono!'));
 
 // WebSocket handling
 app.get('/ws', (c) => {
