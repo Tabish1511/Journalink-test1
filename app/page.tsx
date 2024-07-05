@@ -5,8 +5,6 @@ import io from 'socket.io-client';
 
 const Home = () => {
 
-  // const socket = useMemo(() => io("http://localhost:4000"), [])  //  <<== here comes the BACKEND URL
-
   const socket = useMemo(() => io("https://journalink.onrender.com", {
     withCredentials: true
   }), []);

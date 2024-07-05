@@ -5,8 +5,6 @@ const app = express();
 const server = createServer(app);
 
 
-// const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app/"];
-
 const io = new Server(server, {
     cors: {
         origin: "https://journalink-omega.vercel.app",
@@ -28,78 +26,3 @@ io.on('connection', (socket) => {
 server.listen(4000, () => {
     console.log("Server started on PORT", 4000);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const cors = require('cors');
-
-
-
-// // Use CORS middleware with specific options
-// app.use(cors({
-//     origin: allowedOrigins,
-//     credentials: true,
-//     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
-//     allowedHeaders: ['X-Requested-With', 'Content-Type', 'my-custom-header']
-// }));
