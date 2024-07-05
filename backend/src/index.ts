@@ -5,11 +5,11 @@ const app = express();
 const server = createServer(app);
 
 
-const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app/"];
+// const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app/"];
 
 const io = new Server(server, {
     cors: {
-        origin: allowedOrigins,
+        origin: "https://journalink-omega.vercel.app",
         allowedHeaders: ["X-Requested-With", "Content-Type", "Access-Control-Allow-Origin"],
         credentials: true
     }

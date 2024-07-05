@@ -5,10 +5,10 @@ const socket_io_1 = require("socket.io");
 const http_1 = require("http");
 const app = express();
 const server = (0, http_1.createServer)(app);
-const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app/"];
+// const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app/"];
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: allowedOrigins,
+        origin: "https://journalink-omega.vercel.app",
         allowedHeaders: ["X-Requested-With", "Content-Type", "Access-Control-Allow-Origin"],
         credentials: true
     }
