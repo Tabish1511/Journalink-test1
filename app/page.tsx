@@ -5,7 +5,7 @@ import io from 'socket.io-client';
 
 const Home = () => {
 
-  const socket = useMemo(() => io("https://journalink.onrender.com", {
+  const socket = useMemo(() => io("http://localhost:4000/", {
     withCredentials: true
   }), []);
 

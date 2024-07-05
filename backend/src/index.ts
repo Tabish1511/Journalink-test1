@@ -7,7 +7,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://journalink-omega.vercel.app",
+        origin: "http://localhost:3000",
         allowedHeaders: ["X-Requested-With", "Content-Type", "Access-Control-Allow-Origin"],
         credentials: true
     }
