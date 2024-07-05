@@ -10,9 +10,14 @@ const Home = () => {
   }), []);
 
 
-  socket.on("connect", () => {
-    console.log("I am connected")
-  })
+  function createConnection() {
+    socket.on("connect", () => {
+      console.log("I am connected")
+    })  
+  }
+
+
+  
 
   socket.on("message", (data, id)=> {
     console.log(data + "||" + id)
@@ -21,6 +26,8 @@ const Home = () => {
   return (
     <div>
       Hello there!
+      <br/>
+      <button onClick={createConnection} >Create socket.io connection!</button>
     </div>
   );
 };
