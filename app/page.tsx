@@ -3,15 +3,15 @@
 import { useMemo } from 'react';
 import io from 'socket.io-client';
 
-// let socket: any;
-
 const Home = () => {
-  // const socket = useMemo(() => io("https://backend-hono.khaqantabish.workers.dev"), [])
 
-  const socket = useMemo(() => io("http://localhost:4000"), [])  //  <<== here comes the BACKEND URL
+  // const socket = useMemo(() => io("http://localhost:4000"), [])  //  <<== here comes the BACKEND URL
 
-  // const socket = useMemo(() => io("https://journalink.onrender.com/"), [])  //  <<== here comes the BACKEND URL
-  
+  const socket = useMemo(() => io("http://localhost:4000", {
+    withCredentials: true
+  }), []);
+
+
   socket.on("connect", () => {
     console.log("I am connected")
   })

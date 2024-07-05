@@ -5,12 +5,11 @@ const socket_io_1 = require("socket.io");
 const http_1 = require("http");
 const app = express();
 const server = (0, http_1.createServer)(app);
-// Set the allowed origins based on the environment
-// const allowedOrigins = ["http://localhost:3000", "https://journalink-6batn230t-tabish1511s-projects.vercel.app/"];
 const allowedOrigins = ["http://localhost:3000", "https://journalink-omega.vercel.app/"];
 const io = new socket_io_1.Server(server, {
     cors: {
         origin: allowedOrigins,
+        allowedHeaders: ["X-Requested-With", "Content-Type", "Access-Control-Allow-Origin"],
         credentials: true
     }
 });
@@ -24,3 +23,11 @@ io.on('connection', (socket) => {
 server.listen(4000, () => {
     console.log("Server started on PORT", 4000);
 });
+// const cors = require('cors');
+// // Use CORS middleware with specific options
+// app.use(cors({
+//     origin: allowedOrigins,
+//     credentials: true,
+//     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['X-Requested-With', 'Content-Type', 'my-custom-header']
+// }));
