@@ -13,7 +13,6 @@ const io = new socket_io_1.Server(server, {
     }
 });
 io.on('connection', (socket) => {
-    console.log("A user is connected");
     io.emit("message", "Hello user", socket.id);
     socket.on('disconnect', () => {
         console.log('User disconnected');

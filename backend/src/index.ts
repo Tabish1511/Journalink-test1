@@ -4,7 +4,6 @@ import { createServer } from 'http';
 const app = express();
 const server = createServer(app);
 
-
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:3000",
@@ -14,8 +13,9 @@ const io = new Server(server, {
 });
 
 
+
+
 io.on('connection', (socket) => {
-    console.log("A user is connected");
     io.emit("message", "Hello user", socket.id);
 
     socket.on('disconnect', () => {
