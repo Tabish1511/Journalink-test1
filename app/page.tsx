@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 
-const WebSocketComponent = () => {
+export const websocketComponent = () => {
   const [socket, setSocket] = useState<WebSocket | null>(null);
 
   useEffect(() => {
@@ -23,13 +23,6 @@ const WebSocketComponent = () => {
     </>
   )
 }
-
-WebSocketComponent.displayName = 'WebSocketComponent';
-
-export default WebSocketComponent;
-
-
-
 
 
 
@@ -63,7 +56,7 @@ export default WebSocketComponent;
 // "use client"
 // import { useEffect, useState } from 'react'
 
-// export const websocketComponent = () => {
+// const WebSocketComponent = () => {
 //   const [socket, setSocket] = useState<WebSocket | null>(null);
 
 //   useEffect(() => {
@@ -85,6 +78,44 @@ export default WebSocketComponent;
 //     </>
 //   )
 // }
+
+// WebSocketComponent.displayName = 'WebSocketComponent';
+
+// export default WebSocketComponent;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
